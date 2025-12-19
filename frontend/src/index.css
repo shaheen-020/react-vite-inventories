@@ -1,0 +1,396 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .show-entries {
+        @apply tw-ml-4 tw-flex tw-justify-center lg:tw-justify-start;
+    }
+
+    .search-column {
+        @apply tw-mb-5 tw-mt-3 tw-flex tw-justify-center lg:tw-mt-[-45px] lg:tw-justify-start;
+    }
+
+    .btn-modal {
+        @apply tw-fixed tw-bottom-12 tw-right-7 tw-z-40 tw-h-14 tw-w-14 tw-rounded-full tw-bg-blue-500 tw-text-white tw-shadow-2xl hover:tw-border-blue-600 hover:tw-bg-blue-900;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    @apply tw-tracking-wider;
+}
+
+.section-header>h1 {
+    @apply tw-tracking-wider;
+}
+
+table {
+    @apply tw-w-full tw-table-fixed;
+}
+
+table>thead>tr {
+    @apply tw-text-xs tw-uppercase tw-tracking-widest;
+}
+
+table>tbody>tr {
+    @apply tw-text-gray-700;
+}
+
+table>thead>tr>th {
+    @apply tw-bg-gray-100 tw-p-4 tw-text-gray-600;
+}
+
+table>tbody>tr>td {
+    @apply tw-border-b tw-border-gray-100 tw-p-4;
+}
+
+table>tbody {
+    @apply tw-text-black;
+}
+
+.card-body>h3 {
+    @apply tw-mb-5 tw-ml-4 tw-text-base tw-text-black;
+}
+
+.show-entries>p.show-entries-show {
+    @apply tw-mr-1 tw-mt-1 tw-text-gray-800;
+}
+
+.show-entries>p.show-entries-entries {
+    @apply tw-ml-1 tw-mt-1 tw-text-gray-800;
+}
+
+.show-entries>select {
+    @apply tw-rounded-lg tw-border tw-border-gray-200;
+}
+
+.search-column>p {
+    @apply tw-ml-0 tw-mr-1 tw-mt-1 tw-text-gray-800 lg:tw-ml-auto;
+}
+
+.search-column>input {
+    @apply tw-mr-4 tw-w-2/3 tw-rounded-lg tw-border tw-border-gray-200 lg:tw-w-1/4;
+}
+
+/* --- Refined Premium Dashboard Styles --- */
+:root {
+    --sidebar-width: 260px;
+    --top-navbar-height: 70px;
+    --sidebar-bg: #1e293b;
+    /* Deep Slate */
+    --sidebar-text: #94a3b8;
+    --sidebar-active-bg: #3b82f6;
+    /* Modern Blue */
+    --accent-glow: rgba(59, 130, 246, 0.4);
+    --content-bg: #f1f5f9;
+    --glass-white: rgba(255, 255, 255, 0.9);
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.main-sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Default visible on desktop */
+    height: 100vh;
+    background: var(--sidebar-bg);
+    z-index: 891;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+}
+
+/* Hide sidebar when not in show state on mobile */
+@media (max-width: 1024px) {
+    .main-sidebar {
+        left: calc(-1 * var(--sidebar-width));
+    }
+
+    .main-sidebar.sidebar-show {
+        left: 0 !important;
+    }
+}
+
+/* Desktop: sidebar always visible, toggle has no effect */
+@media (min-width: 1025px) {
+    .main-sidebar {
+        left: 0 !important;
+    }
+}
+
+.sidebar-menu {
+    padding: 20px 15px;
+    list-style: none;
+}
+
+.sidebar-menu li.menu-header {
+    padding: 15px 10px 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.sidebar-menu li a {
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    color: var(--sidebar-text);
+    font-weight: 500;
+    transition: all 0.25s ease;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.sidebar-menu li a i {
+    width: 26px;
+    font-size: 16px;
+    margin-right: 14px;
+    opacity: 0.7;
+}
+
+.sidebar-menu li a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+.sidebar-menu li.active>a:hover {
+    background: var(--sidebar-active-bg) !important;
+    color: #fff !important;
+    opacity: 0.9;
+}
+
+.sidebar-menu li.active>a {
+    background: var(--sidebar-active-bg);
+    color: #fff;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.sidebar-menu li.sidebar-item-dropdown .sidebar-submenu {
+    background: rgba(15, 23, 42, 0.45) !important;
+    padding: 5px 0 !important;
+    margin: 5px 0 !important;
+    border-radius: 10px !important;
+    display: none;
+    border: none !important;
+    box-shadow: none !important;
+    position: static !important;
+    float: none !important;
+}
+
+.sidebar-menu li.sidebar-item-dropdown .sidebar-submenu.d-block {
+    display: block !important;
+    animation: fadeInDown 0.3s ease-out;
+}
+
+/* Custom Dropdown Arrow */
+.react-dropdown-trigger {
+    position: relative;
+}
+
+.react-dropdown-trigger::after {
+    content: "\f107";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    font-size: 12px;
+}
+
+.sidebar-item-dropdown.active .react-dropdown-trigger::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sidebar-menu li.sidebar-item-dropdown .sidebar-submenu li a {
+    padding-left: 55px;
+    font-size: 13.5px;
+    transition: all 0.2s;
+}
+
+.sidebar-menu li.sidebar-item-dropdown .sidebar-submenu li a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    padding-left: 60px;
+    /* Subtle slide effect */
+}
+
+.navbar.main-navbar {
+    height: var(--top-navbar-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--glass-white);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 890;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 40px;
+}
+
+
+.nav-link-user {
+    color: #1e293b !important;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.main-content {
+    margin-left: 0;
+    padding: calc(var(--top-navbar-height) + 25px) 40px 50px 40px;
+    min-height: 100vh;
+    background: var(--content-bg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Desktop: add margin for sidebar */
+@media (min-width: 1025px) {
+    .main-content {
+        margin-left: var(--sidebar-width);
+    }
+}
+
+
+.section-body {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 !important;
+    padding: 0 15px !important;
+}
+
+/* Focused Card Appearance - Scoped to primary cards only */
+.card:not(.card-statistic-1) {
+    border-radius: 12px;
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    margin-bottom: 30px;
+    background: #fff;
+}
+
+/* Stat Cards: Just add premium shadow and radius without breaking layout */
+.card.card-statistic-1 {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    border: none !important;
+}
+
+.card:not(.card-statistic-1) .card-header {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 20px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    min-height: 60px !important;
+}
+
+.card .card-header h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #334155;
+    margin: 0;
+}
+
+.card .card-header-action {
+    margin-left: auto !important;
+}
+
+/* Modal centering fix for some templates */
+.modal.show {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .navbar.main-navbar {
+        padding: 0 15px;
+    }
+
+    .main-content {
+        padding: calc(var(--top-navbar-height) + 20px) 15px 30px 15px;
+    }
+}
+
+
+
+.sidebar-toggle-btn {
+    font-size: 22px;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+    color: var(--sidebar-active-bg) !important;
+    text-decoration: none !important;
+    opacity: 0.8;
+}
+
+/* Fix for buttons appearing invisible on white backgrounds */
+.btn-primary {
+    background-color: #1d2a82 !important;
+    color: #fff !important;
+    border-color: #232392 !important;
+}
+
+.btn-info {
+    background-color: #0b2b3c !important;
+    color: #fff !important;
+    border-color: #05212e !important;
+}
+
+.btn-success {
+    background-color: #06350c !important;
+    color: #fff !important;
+    border-color: #071b0c !important;
+}
+
+.btn-secondary {
+    background-color: #107bd2 !important;
+    color: #fff !important;
+    border-color: #0b416d !important;
+}
+
+.btn-danger {
+    background-color: #fc544b !important;
+    color: #fff !important;
+    border-color: #fc544b !important;
+}
