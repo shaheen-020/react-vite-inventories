@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Case from "../../components/Case";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
@@ -218,23 +217,25 @@ export default function Profile() {
 
     if (isLoading) {
         return (
-            <Case>
-                <div className="section-header px-4 tw-rounded-none tw-shadow-md tw-shadow-gray-200 lg:tw-rounded-lg">
-                    <h1 className="mb-1 tw-text-lg">Loading...</h1>
+            <section className="section">
+                <div className="section-body">
+                    <div className="section-header">
+                        <h1>Loading...</h1>
+                    </div>
                 </div>
-            </Case>
+            </section>
         );
     }
 
     return (
-        <Case>
-            <div className="section-header px-4 tw-rounded-none tw-shadow-md tw-shadow-gray-200 lg:tw-rounded-lg">
-                <h1 className="mb-1 tw-text-lg">Profile Information</h1>
-            </div>
-
+        <section className="section">
             <div className="section-body">
-                <div className="card">
-                    <div className="card-body px-4">
+                <div className="section-header">
+                    <h1>Profile Information</h1>
+                </div>
+
+                <div className="card mt-4">
+                    <div className="card-body">
                         <p className="tw-text-gray-500">
                             Update your account's profile information and email
                             address.
@@ -246,11 +247,10 @@ export default function Profile() {
                                     type="text"
                                     name="name"
                                     id="name"
-                                    className={`form-control tw-w-1/2 ${
-                                        formErrorsProfile.name
-                                            ? "is-invalid"
-                                            : ""
-                                    }`}
+                                    className={`form-control tw-w-full tw-max-w-md ${formErrorsProfile.name
+                                        ? "is-invalid"
+                                        : ""
+                                        }`}
                                     value={formProfile.name || ""}
                                     onChange={handleInputChangeProfile}
                                 />
@@ -266,11 +266,10 @@ export default function Profile() {
                                     type="email"
                                     name="email"
                                     id="email"
-                                    className={`form-control tw-w-1/2 ${
-                                        formErrorsProfile.email
-                                            ? "is-invalid"
-                                            : ""
-                                    }`}
+                                    className={`form-control tw-w-full tw-max-w-md ${formErrorsProfile.email
+                                        ? "is-invalid"
+                                        : ""
+                                        }`}
                                     value={formProfile.email || ""}
                                     onChange={handleInputChangeProfile}
                                 />
@@ -285,8 +284,8 @@ export default function Profile() {
                     </div>
                 </div>
 
-                <div className="card">
-                    <div className="card-body px-4">
+                <div className="card mt-4">
+                    <div className="card-body">
                         <h4 className="tw-text-base tw-text-black ">
                             Update Password
                         </h4>
@@ -303,11 +302,10 @@ export default function Profile() {
                                     type="password"
                                     name="current_password"
                                     id="current_password"
-                                    className={`form-control tw-w-1/2 ${
-                                        formErrorsPassword.current_password
-                                            ? "is-invalid"
-                                            : ""
-                                    }`}
+                                    className={`form-control tw-w-full tw-max-w-md ${formErrorsPassword.current_password
+                                        ? "is-invalid"
+                                        : ""
+                                        }`}
                                     value={formPassword.current_password || ""}
                                     onChange={handleInputChangePassword}
                                 />
@@ -323,11 +321,10 @@ export default function Profile() {
                                     type="password"
                                     name="password"
                                     id="password"
-                                    className={`form-control tw-w-1/2 ${
-                                        formErrorsPassword.password
-                                            ? "is-invalid"
-                                            : ""
-                                    }`}
+                                    className={`form-control tw-w-full tw-max-w-md ${formErrorsPassword.password
+                                        ? "is-invalid"
+                                        : ""
+                                        }`}
                                     value={formPassword.password || ""}
                                     onChange={handleInputChangePassword}
                                 />
@@ -345,11 +342,10 @@ export default function Profile() {
                                     type="password"
                                     name="password_confirmation"
                                     id="password_confirmation"
-                                    className={`form-control tw-w-1/2 ${
-                                        formErrorsPassword.password_confirmation
-                                            ? "is-invalid"
-                                            : ""
-                                    }`}
+                                    className={`form-control tw-w-full tw-max-w-md ${formErrorsPassword.password_confirmation
+                                        ? "is-invalid"
+                                        : ""
+                                        }`}
                                     value={
                                         formPassword.password_confirmation || ""
                                     }
@@ -368,6 +364,6 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-        </Case>
+        </section>
     );
 }

@@ -18,8 +18,8 @@ export default function FormModal({ title, show, onClose, onSubmit, children, su
                             {children}
                         </div>
                         <div className="modal-footer" style={{ borderTop: '1px solid #f1f5f9', padding: '1.25rem 2rem', background: '#f8fafc', borderBottomLeftRadius: '15px', borderBottomRightRadius: '15px' }}>
-                            <button type="button" className="btn btn-secondary" onClick={onClose} style={{ borderRadius: '10px', fontWeight: '600' }}>Close</button>
-                            <button type="submit" className="btn btn-primary" style={{ borderRadius: '10px', padding: '0.6rem 2rem', fontWeight: '700', boxShadow: '0 4px 12px var(--accent-glow)' }}>{submitWebBtnText}</button>
+                            <button type="button" className="btn btn-secondary" onClick={onClose} style={{ borderRadius: '10px', padding: '0.6rem 2rem', fontWeight: '600' }}>Close</button>
+                            <button type="submit" className="btn btn-primary" style={{ borderRadius: '10px', padding: '0.6rem 2rem', fontWeight: '600', boxShadow: '0 4px 12px var(--accent-glow)' }}>{submitWebBtnText}</button>
                         </div>
                     </form>
                 </div>
